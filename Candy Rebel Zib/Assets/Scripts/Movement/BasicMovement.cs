@@ -42,10 +42,6 @@ namespace Baseplate.movement
         [Header("Layermasks")]
         [SerializeField] LayerMask groundMask;
 
-        //Rotation
-        [Header("Rotation")]
-        [SerializeField] float rotationSpeed = 540f; // degrees per second
-
         //Cache
         private Camera cam;
         private Rigidbody rb;
@@ -80,7 +76,6 @@ namespace Baseplate.movement
         private void FixedUpdate()
         {
             Move();
-            RotateToCameraYaw();
             ApplyGravity();
         }
 
@@ -158,18 +153,6 @@ namespace Baseplate.movement
                 }
             }
             WasGrounded = IsGrounded;
-        }
-
-        private void RotateToCameraYaw()
-        {
-            Vector3 forward = cam.transform.forward;
-            forward.y = 0f;
-
-            if (forward.sqrMagnitude < 0.0001f) return; // avoid invalid look rotation
-
-            Quaternion target = Quaternion.LookRotation(forward, Vector3.up);
-            Quaternion next = Quaternion.RotateTowards(rb.rotation, target, rotationSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(next);
         }
     }
 }
