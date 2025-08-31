@@ -478,9 +478,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2114375543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &959101669 stripped
+--- !u!4 &914656685 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2563036518897533118, guid: 10ab71c0476f8a147b0e928a4277683a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5269510388577421333, guid: 10ab71c0476f8a147b0e928a4277683a, type: 3}
   m_PrefabInstance: {fileID: 626712361}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1170629551
@@ -542,7 +542,7 @@ PrefabInstance:
     - target: {fileID: 7712492742271325299, guid: f8053d82f5ac62343ba2e2eb1d82af1a, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 959101669}
+      objectReference: {fileID: 914656685}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
