@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Baseplate.movement
 {
-    public class BasicMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         private float CurrentSpeed;
         private bool WasGrounded;
@@ -21,6 +21,12 @@ namespace Baseplate.movement
 
         [Range(0.1f, 5f)]
         [SerializeField] float AirSpeed = 0.8f;
+
+        // Rotation Settings
+        [Header("Rotation Settings")]
+        [Tooltip("Higher values rotate the player faster towards the movement direction.")]
+        [Range(0.1f, 50f)]
+        [SerializeField] float RotationSpeed = 10f;
 
         //Jump Settings
         [Header("Jump Settings")]
@@ -75,6 +81,9 @@ namespace Baseplate.movement
 
         private void FixedUpdate()
         {
+            // Rotate the player to face the movement direction (if any)
+            RotateToMovement();
+
             Move();
             ApplyGravity();
         }
@@ -115,6 +124,21 @@ namespace Baseplate.movement
         {
             //Move
             rb.AddForce(MoveValue * CurrentSpeed, ForceMode.VelocityChange);
+        }
+
+        private void RotateToMovement()
+        {
+            //Only rotate when there's noticeable movement input
+            Vector3 flatMove = new Vector3(MoveValue.x, 0f, MoveValue.z);
+            if (flatMove.sqrMagnitude > 0.0001f)
+            {
+                // Calculate the desired rotation facing the movement direction
+                Quaternion targetRotation = Quaternion.LookRotation(flatMove);
+
+                // Smoothly rotate using Rigidbody to play nicely with physics
+                Quaternion newRot = Quaternion.Slerp(rb.rotation, targetRotation, RotationSpeed * Time.fixedDeltaTime);
+                rb.MoveRotation(newRot);
+            }
         }
 
         private bool GroundCheck()
