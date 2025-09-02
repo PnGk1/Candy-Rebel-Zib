@@ -168,7 +168,7 @@ MonoBehaviour:
   RotationSpeed: 10
   groundCheckRadius: 0.5
   jumpForce: 20
-  Gravity: 50
+  Gravity: 70
   hangTime: 0.35
   hangGravityMultiplier: 0.35
   groundMask:
