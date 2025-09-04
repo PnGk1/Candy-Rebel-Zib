@@ -164,12 +164,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LinearDamp: 6
   GroundedSpeed: 1.1
-  AirSpeed: 0.8
+  AirSpeed: 0.5
   RotationSpeed: 10
-  groundCheckRadius: 0.5
-  jumpForce: 15
+  groundCheckRadius: 0.2
+  jumpForce: 10
   HoldjumpForce: 10
-  Gravity: 70
+  Gravity: 150
   hangTime: 0.35
   hangGravityMultiplier: 0.35
   CoyoteTime: 0.3

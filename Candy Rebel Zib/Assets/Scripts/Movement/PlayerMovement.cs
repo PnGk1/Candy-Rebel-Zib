@@ -35,7 +35,7 @@ namespace Baseplate.movement
 
         //Jump Settings
         [Header("Jump Settings")]
-        [Range(0.3f, 0.7f)]
+        [Range(0.1f, 0.3f)]
         [SerializeField] float groundCheckRadius = 0.5f;
 
         [SerializeField] float jumpForce = 20f;
@@ -154,7 +154,8 @@ namespace Baseplate.movement
         private bool GroundCheck()
         {
             Vector3 footPos = PlayerCollider.bounds.center + Vector3.down * (PlayerCollider.bounds.extents.y - 0.02f);
-            return Physics.CheckSphere(footPos, groundCheckRadius, groundMask, QueryTriggerInteraction.Ignore);
+            Vector3 endPos = footPos + Vector3.down * groundCheckRadius;
+            return Physics.CheckCapsule(footPos, endPos, groundCheckRadius, groundMask);
         }
 
         private void JumpHandler()
@@ -192,7 +193,7 @@ namespace Baseplate.movement
             {
                 if (CoyoteCounter < CoyoteTime)
                 {
-                    CoyoteCounter += Time.deltaTime;
+                    CoyoteCounter += Time.fixedDeltaTime;
                 }
                 else
                 {
@@ -202,9 +203,10 @@ namespace Baseplate.movement
             }
 
 
-            if (!WasGrounded && IsGrounded && CoyoteCounter <= 0)
+            if (!WasGrounded && IsGrounded)
             {
                 hangCounter = 0f;
+                CoyoteCounter = 0;
             }
 
             if (!IsGrounded)
