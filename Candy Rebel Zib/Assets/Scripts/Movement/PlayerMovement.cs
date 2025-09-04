@@ -178,6 +178,10 @@ namespace Baseplate.movement
                 {
                     jump(ForceMode.Force, HoldjumpForce);
                 }
+                if (playerControls.Player.Jump.WasReleasedThisFrame())
+                {
+                    IsCoyote = false;
+                }
             }
         }
 
@@ -222,6 +226,11 @@ namespace Baseplate.movement
                 }
             }
             WasGrounded = IsGrounded;
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            
         }
     }
 }
