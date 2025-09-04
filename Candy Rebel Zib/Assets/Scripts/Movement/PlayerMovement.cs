@@ -5,11 +5,16 @@ namespace Baseplate.movement
 {
     public class PlayerMovement : MonoBehaviour
     {
+        //move
         private float CurrentSpeed;
+        private Vector3 MoveValue;
+        //jump
         private bool WasGrounded;
         private bool IsGrounded;
         private float hangCounter = 0f;
-        private Vector3 MoveValue;
+        //Coyote
+        private bool IsCoyote;
+        private float CoyoteCounter;
 
         //Move Settings
         [Header("Movement Settings")]
@@ -35,6 +40,8 @@ namespace Baseplate.movement
 
         [SerializeField] float jumpForce = 20f;
 
+        [SerializeField] float HoldjumpForce = 1f;
+
         [SerializeField] float Gravity = 50f;
 
         // hang time (short period after jump with reduced gravity)
@@ -43,6 +50,9 @@ namespace Baseplate.movement
 
         [Range(0.01f, 1.5f)]
         [SerializeField] float hangGravityMultiplier = 1f;
+
+        //Coyote
+        [SerializeField] float CoyoteTime = 1f;
 
         //Layermasks
         [Header("Layermasks")]
@@ -76,7 +86,7 @@ namespace Baseplate.movement
             rb.linearDamping = LinearDamp;
 
             CalculateMove();
-            Jump();
+            JumpHandler();
         }
 
         private void FixedUpdate()
@@ -147,19 +157,52 @@ namespace Baseplate.movement
             return Physics.CheckSphere(footPos, groundCheckRadius, groundMask, QueryTriggerInteraction.Ignore);
         }
 
-        private void Jump()
+        private void JumpHandler()
         {
-            if (IsGrounded && playerControls.Player.Jump.WasPressedThisFrame())
+            if (IsGrounded)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-                hangCounter = hangTime;
+                if (!IsCoyote)
+                {
+                    if (playerControls.Player.Jump.WasPressedThisFrame())
+                    {
+                        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+                        jump(ForceMode.VelocityChange, jumpForce);
+                        IsCoyote = true;
+                    }
+                }
             }
+            if (IsCoyote)
+            {
+                if (playerControls.Player.Jump.IsPressed())
+                {
+                    jump(ForceMode.Force, HoldjumpForce);
+                }
+            }
+        }
+
+        private void jump(ForceMode mode, float force)
+        {
+            rb.AddForce(Vector3.up * force, mode);
+            hangCounter = hangTime;
         }
 
         private void ApplyGravity()
         {
-            if (!WasGrounded && IsGrounded)
+            if (IsCoyote)
+            {
+                if (CoyoteCounter < CoyoteTime)
+                {
+                    CoyoteCounter += Time.deltaTime;
+                }
+                else
+                {
+                    IsCoyote = false;
+                    CoyoteCounter = 0;
+                }
+            }
+
+
+            if (!WasGrounded && IsGrounded && CoyoteCounter <= 0)
             {
                 hangCounter = 0f;
             }
