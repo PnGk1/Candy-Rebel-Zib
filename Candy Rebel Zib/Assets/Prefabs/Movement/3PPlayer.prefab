@@ -167,12 +167,12 @@ MonoBehaviour:
   AirSpeed: 0.5
   RotationSpeed: 10
   groundCheckRadius: 0.2
-  jumpForce: 10
+  jumpForce: 12
   HoldjumpForce: 10
   Gravity: 150
   hangTime: 0.35
   hangGravityMultiplier: 0.35
-  CoyoteTime: 0.3
+  JumpingTime: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 8

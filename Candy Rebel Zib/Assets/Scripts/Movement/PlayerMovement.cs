@@ -12,9 +12,9 @@ namespace Baseplate.movement
         private bool WasGrounded;
         private bool IsGrounded;
         private float hangCounter = 0f;
-        //Coyote
-        private bool IsCoyote;
-        private float CoyoteCounter;
+        //IsJumping
+        private bool IsJumping;
+        private float JumpingCounter;
 
         //Move Settings
         [Header("Movement Settings")]
@@ -51,8 +51,8 @@ namespace Baseplate.movement
         [Range(0.01f, 1.5f)]
         [SerializeField] float hangGravityMultiplier = 1f;
 
-        //Coyote
-        [SerializeField] float CoyoteTime = 1f;
+        //IsJumping
+        [SerializeField] float JumpingTime = 1f;
 
         //Layermasks
         [Header("Layermasks")]
@@ -126,8 +126,8 @@ namespace Baseplate.movement
                 CurrentSpeed = AirSpeed;
             }
 
-            //Caching The Value
-            MoveValue = moveDirection;
+                //Caching The Value
+                MoveValue = moveDirection;
         }
 
         private void Move()
@@ -162,17 +162,17 @@ namespace Baseplate.movement
         {
             if (IsGrounded)
             {
-                if (!IsCoyote)
+                if (!IsJumping)
                 {
                     if (playerControls.Player.Jump.WasPressedThisFrame())
                     {
                         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
                         jump(ForceMode.VelocityChange, jumpForce);
-                        IsCoyote = true;
+                        IsJumping = true;
                     }
                 }
             }
-            if (IsCoyote)
+            if (IsJumping)
             {
                 if (playerControls.Player.Jump.IsPressed())
                 {
@@ -180,7 +180,7 @@ namespace Baseplate.movement
                 }
                 if (playerControls.Player.Jump.WasReleasedThisFrame())
                 {
-                    IsCoyote = false;
+                    IsJumping = false;
                 }
             }
         }
@@ -193,24 +193,23 @@ namespace Baseplate.movement
 
         private void ApplyGravity()
         {
-            if (IsCoyote)
+            if (IsJumping)
             {
-                if (CoyoteCounter < CoyoteTime)
+                if (JumpingCounter < JumpingTime)
                 {
-                    CoyoteCounter += Time.fixedDeltaTime;
+                    JumpingCounter += Time.fixedDeltaTime;
                 }
                 else
                 {
-                    IsCoyote = false;
-                    CoyoteCounter = 0;
+                    IsJumping = false;
+                    JumpingCounter = 0;
                 }
             }
-
 
             if (!WasGrounded && IsGrounded)
             {
                 hangCounter = 0f;
-                CoyoteCounter = 0;
+                JumpingCounter = 0;
             }
 
             if (!IsGrounded)
@@ -226,11 +225,6 @@ namespace Baseplate.movement
                 }
             }
             WasGrounded = IsGrounded;
-        }
-
-        private void OnCollisionStay(Collision collision)
-        {
-            
         }
     }
 }
