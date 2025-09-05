@@ -126,8 +126,8 @@ namespace Baseplate.movement
                 CurrentSpeed = AirSpeed;
             }
 
-                //Caching The Value
-                MoveValue = moveDirection;
+            //Caching The Value
+            MoveValue = moveDirection;
         }
 
         private void Move()
@@ -155,7 +155,8 @@ namespace Baseplate.movement
         {
             Vector3 footPos = PlayerCollider.bounds.center + Vector3.down * (PlayerCollider.bounds.extents.y - 0.02f);
             Vector3 endPos = footPos + Vector3.down * groundCheckRadius;
-            return Physics.CheckCapsule(footPos, endPos, groundCheckRadius, groundMask);
+            // Use QueryTriggerInteraction.Ignore to ensure triggers don't accidentally count as ground (works with your capsule collider) (fix #7)
+            return Physics.CheckCapsule(footPos, endPos, groundCheckRadius, groundMask, QueryTriggerInteraction.Ignore);
         }
 
         private void JumpHandler()
@@ -167,8 +168,9 @@ namespace Baseplate.movement
                     if (playerControls.Player.Jump.WasPressedThisFrame())
                     {
                         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-                        jump(ForceMode.VelocityChange, jumpForce);
+                        Jump(ForceMode.VelocityChange, jumpForce);
                         IsJumping = true;
+                        JumpingCounter = 0f; // reset JumpingCounter when jump starts (fix #4)
                     }
                 }
             }
@@ -176,7 +178,7 @@ namespace Baseplate.movement
             {
                 if (playerControls.Player.Jump.IsPressed())
                 {
-                    jump(ForceMode.Force, HoldjumpForce);
+                    Jump(ForceMode.Force, HoldjumpForce);
                 }
                 if (playerControls.Player.Jump.WasReleasedThisFrame())
                 {
@@ -185,7 +187,7 @@ namespace Baseplate.movement
             }
         }
 
-        private void jump(ForceMode mode, float force)
+        private void Jump(ForceMode mode, float force)
         {
             rb.AddForce(Vector3.up * force, mode);
             hangCounter = hangTime;
