@@ -83,7 +83,6 @@ namespace Baseplate.movement
         {
             //Check if player is Grounded or not
             IsGrounded = GroundCheck();
-            rb.linearDamping = LinearDamp;
 
             CalculateMove();
             JumpHandler();
@@ -91,6 +90,8 @@ namespace Baseplate.movement
 
         private void FixedUpdate()
         {
+            rb.linearDamping = LinearDamp;
+
             // Rotate the player to face the movement direction (if any)
             RotateToMovement();
 
