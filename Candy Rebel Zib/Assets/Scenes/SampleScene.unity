@@ -854,6 +854,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3PPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3702363075903047216, guid: 10ab71c0476f8a147b0e928a4277683a, type: 3}
+      propertyPath: LinearDamp
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569416833188467509, guid: 10ab71c0476f8a147b0e928a4277683a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: fe52d5392edd96143ac7528b243fab30, type: 2}
     - target: {fileID: 7188678861856166914, guid: 10ab71c0476f8a147b0e928a4277683a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8977375
