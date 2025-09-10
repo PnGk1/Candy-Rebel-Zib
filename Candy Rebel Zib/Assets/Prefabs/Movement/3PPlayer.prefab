@@ -96,9 +96,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7188678861856166914}
   - component: {fileID: 281124308918591095}
+  - component: {fileID: 2233035742377522164}
   - component: {fileID: 3702363075903047216}
-  - component: {fileID: -3473104109407017294}
-  - component: {fileID: 4722228375190286173}
+  - component: {fileID: 6518635133230360533}
   m_Layer: 0
   m_Name: 3PPlayer
   m_TagString: Untagged
@@ -151,6 +151,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2233035742377522164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907305974109911547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c69992e95fe5d4dae954c103e011ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3702363075903047216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,19 +189,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &-3473104109407017294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907305974109911547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c69992e95fe5d4dae954c103e011ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4722228375190286173
+--- !u!114 &6518635133230360533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
