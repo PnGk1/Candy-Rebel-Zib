@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Baseplate.interactionSystem
 {
     public interface IInteractable

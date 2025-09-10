@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Baseplate.interactionSystem
 {
-    public class Button : MonoBehaviour, IInteractable
+    public class Orb : MonoBehaviour, IInteractable
     {
         [SerializeField] string InteractionTetx;
         public void Interact()
