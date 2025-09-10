@@ -8,10 +8,11 @@ namespace Baseplate.interactionSystem
         public void Interact()
         {
             Debug.Log(InteractionTetx);
+            Destroy(gameObject);
         }
         public void OnHover()
         {
-            Debug.Log(InteractionTetx);
+            Debug.Log("Hovering");
         }
     }
 }

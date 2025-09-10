@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 281124308918591095}
   - component: {fileID: 3702363075903047216}
   - component: {fileID: -3473104109407017294}
+  - component: {fileID: 4722228375190286173}
   m_Layer: 0
   m_Name: 3PPlayer
   m_TagString: Untagged
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7422c86594432344b518d81a59a689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinearDamp: 6
+  LinearDamp: 8
   GroundedSpeed: 1.1
   AirSpeed: 0.5
   RotationSpeed: 10
@@ -188,6 +189,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c69992e95fe5d4dae954c103e011ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4722228375190286173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907305974109911547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6766962bc5c31c448d90241aceebca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxRadius: 0.6
+  InteractMaxDistance: 1
+  minDistanceImprovement: 0.05
+  interactablesMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &3846884969201050562
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +301,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3846884969201050562}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: fe52d5392edd96143ac7528b243fab30, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
