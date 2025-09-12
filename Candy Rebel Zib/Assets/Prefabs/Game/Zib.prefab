@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4815118689677840303}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.36673, y: -0.0954206, z: 12.000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   jumpForce: 12
   HoldjumpForce: 12
   Gravity: 150
+  animationSmoothTime: 0.09
   hangTime: 0.35
   hangGravityMultiplier: 0.35
   JumpingTime: 0.2
@@ -275,7 +276,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5755581807444836593}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: fe52d5392edd96143ac7528b243fab30, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -301,7 +302,7 @@ Animator:
   m_GameObject: {fileID: 5755581807444836593}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fc38b4b2d683154caadde4dd460eaa1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

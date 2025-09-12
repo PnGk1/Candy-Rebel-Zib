@@ -17,7 +17,7 @@ namespace Baseplate.movement
         private float JumpingCounter;
 
         //animation
-        
+        private Vector3 animationBlend;
 
         //Move Settings
         [Header("Movement Settings")]
@@ -46,6 +46,9 @@ namespace Baseplate.movement
         [SerializeField] float HoldjumpForce = 1f;
 
         [SerializeField] float Gravity = 50f;
+
+        [Header("Animation Settings")]
+        [SerializeField] float animationSmoothTime;
 
         // hang time (short period after jump with reduced gravity)
         [Range(0.1f, 1.5f)]
@@ -90,6 +93,7 @@ namespace Baseplate.movement
             //Check if player is Grounded or not
             IsGrounded = GroundCheck();
 
+            updateAnims();
             CalculateMove();
             JumpHandler();
         }
@@ -236,5 +240,13 @@ namespace Baseplate.movement
             }
             WasGrounded = IsGrounded;
         }
+
+        private void updateAnims()
+        {
+            Vector3 currentVel = transform.InverseTransformDirection(rb.linearVelocity);
+            animationBlend = Vector3.Lerp(animationBlend, currentVel, animationSmoothTime);
+            animator.SetFloat("Vel", animationBlend.z);
+        }
+
     }
 }
