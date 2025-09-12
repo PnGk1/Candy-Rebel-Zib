@@ -125,7 +125,7 @@ MonoBehaviour:
   RotationSpeed: 10
   groundCheckRadius: 0.2
   jumpForce: 12
-  HoldjumpForce: 12
+  HoldjumpForce: 15
   Gravity: 150
   animationSmoothTime: 0.09
   hangTime: 0.35
@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a81d4dcd76a2c4041bc9771162f3ee08, type: 2}
+    - target: {fileID: -5546439633771404701, guid: 29f5c122a1b3aeb4580fdf6489ca34d0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 574458a983d68a74b9f31951933db315, type: 2}
     - target: {fileID: -4811463351771228101, guid: 29f5c122a1b3aeb4580fdf6489ca34d0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -240,6 +244,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a81d4dcd76a2c4041bc9771162f3ee08, type: 2}
+    - target: {fileID: 3505068965197213699, guid: 29f5c122a1b3aeb4580fdf6489ca34d0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ebf8b20f1a7e0a46a8d925ab1522c33, type: 2}
     - target: {fileID: 5102395909350310581, guid: 29f5c122a1b3aeb4580fdf6489ca34d0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
