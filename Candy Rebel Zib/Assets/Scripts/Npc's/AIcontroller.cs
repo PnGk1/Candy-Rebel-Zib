@@ -163,7 +163,7 @@ namespace Baseplate.AI
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(currentPos, SightRange);
+            Gizmos.DrawSphere(transform.position, SightRange);
         }
     }
 }
