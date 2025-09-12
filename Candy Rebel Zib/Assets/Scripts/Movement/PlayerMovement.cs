@@ -16,6 +16,9 @@ namespace Baseplate.movement
         private bool IsJumping;
         private float JumpingCounter;
 
+        //animation
+        
+
         //Move Settings
         [Header("Movement Settings")]
         [Range(0f, 10f)]
@@ -65,6 +68,8 @@ namespace Baseplate.movement
         //Input System
         private PlayerInputManager playerInputManager;
         private PlayerControls playerControls;
+        //animator
+        private Animator animator;
 
         private void Awake()
         {
@@ -75,6 +80,7 @@ namespace Baseplate.movement
             playerInputManager = GetComponent<PlayerInputManager>();
             playerControls = playerInputManager.playerControls;
             PlayerCollider = GetComponentInChildren<Collider>();
+            animator = GetComponentInChildren<Animator>();
             cam = Camera.main;
             rb = GetComponent<Rigidbody>();
         }
@@ -171,7 +177,8 @@ namespace Baseplate.movement
                         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
                         Jump(ForceMode.VelocityChange, jumpForce);
                         IsJumping = true;
-                        JumpingCounter = 0f; // reset JumpingCounter when jump starts (fix #4)
+                        JumpingCounter = 0f;
+                        animator.SetTrigger("jump");
                     }
                 }
             }
