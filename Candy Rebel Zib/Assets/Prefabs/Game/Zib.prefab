@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4436439960668205942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.946, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0.946, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6814732656173110441}
   - component: {fileID: 9012037984367555126}
-  - component: {fileID: 4778424142520697393}
+  - component: {fileID: 6695768949638225386}
   - component: {fileID: 3474557573453218}
   - component: {fileID: 6327713050367312291}
   m_Layer: 0
@@ -95,7 +95,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4778424142520697393
+--- !u!114 &6695768949638225386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

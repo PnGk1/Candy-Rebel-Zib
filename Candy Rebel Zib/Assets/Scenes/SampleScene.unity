@@ -1707,10 +1707,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 107153122}
     m_Modifications:
-    - target: {fileID: 4688571750089676018, guid: ed8f78148c9c2dc42a654adb616a5c6f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4815118689677840303, guid: ed8f78148c9c2dc42a654adb616a5c6f, type: 3}
       propertyPath: m_Name
       value: Zib
@@ -1755,6 +1751,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8077646230875152323, guid: ed8f78148c9c2dc42a654adb616a5c6f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 574458a983d68a74b9f31951933db315, type: 2}
+    - target: {fileID: 8338985760466996643, guid: ed8f78148c9c2dc42a654adb616a5c6f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ebf8b20f1a7e0a46a8d925ab1522c33, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
