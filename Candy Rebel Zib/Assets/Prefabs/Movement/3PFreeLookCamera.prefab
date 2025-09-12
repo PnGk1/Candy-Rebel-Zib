@@ -274,6 +274,6 @@ MonoBehaviour:
     Enabled: 1
     TerrainLayers:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 8
     MaximumRaycast: 10
     Damping: 0.5
