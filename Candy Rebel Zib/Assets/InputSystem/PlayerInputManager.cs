@@ -5,7 +5,7 @@ namespace Baseplate.InputManager
     public class PlayerInputManager : MonoBehaviour
     {
         //Input System
-        public PlayerControls playerControls;
+        private PlayerControls playerControls;
         private void Awake()
         {
             playerControls = new PlayerControls();
