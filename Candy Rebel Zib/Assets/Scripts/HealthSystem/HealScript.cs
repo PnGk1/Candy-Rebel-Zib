@@ -6,9 +6,9 @@ public class HealScript : MonoBehaviour
     [SerializeField] float timeBetweenHeal = 1;
     private float timeSinceLastHeal;
     private bool CanHeal = true;
-    private void OnCollisionStay(Collision hit)
+    private void OnTriggerStay(Collider other)
     {
-        IDamageable target = hit.collider.GetComponent<IDamageable>();
+        IDamageable target = other.GetComponent<IDamageable>();
         if (target != null && CanHeal == true)
         {
             target.Heal(1);
