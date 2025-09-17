@@ -81,7 +81,7 @@ namespace Baseplate.movement
             Cursor.visible = false;
             //Getting The Components
             playerInputManager = GetComponent<PlayerInputManager>();
-            playerControls = playerInputManager.playerControls;
+            playerControls = playerInputManager.ExposePlayerControls();
             PlayerCollider = GetComponentInChildren<Collider>();
             animator = GetComponentInChildren<Animator>();
             cam = Camera.main;

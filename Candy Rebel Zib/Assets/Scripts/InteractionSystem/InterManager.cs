@@ -36,7 +36,7 @@ namespace Baseplate.interactionSystem
         {
             //Getting The Components
             playerInputManager = GetComponent<PlayerInputManager>();
-            playerControls = playerInputManager.playerControls;
+            playerControls = playerInputManager.ExposePlayerControls();
         }
         private void Update()
         {
