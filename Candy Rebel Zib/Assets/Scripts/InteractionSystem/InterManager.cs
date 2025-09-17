@@ -32,11 +32,11 @@ namespace Baseplate.interactionSystem
         private PlayerInputManager playerInputManager;
         private PlayerControls playerControls;
 
-        private void Awake()
+        private void Start()
         {
             //Getting The Components
             playerInputManager = GetComponent<PlayerInputManager>();
-            playerControls = playerInputManager.ExposePlayerControls();
+            playerControls = playerInputManager.playerControls;
         }
         private void Update()
         {

@@ -74,20 +74,19 @@ namespace Baseplate.movement
         //animator
         private Animator animator;
 
-        private void Awake()
+        private void Start()
         {
             //Make Crosshair Invisible
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             //Getting The Components
             playerInputManager = GetComponent<PlayerInputManager>();
-            playerControls = playerInputManager.ExposePlayerControls();
+            playerControls = playerInputManager.playerControls;
             PlayerCollider = GetComponentInChildren<Collider>();
             animator = GetComponentInChildren<Animator>();
             cam = Camera.main;
             rb = GetComponent<Rigidbody>();
         }
-
         private void Update()
         {
             //Check if player is Grounded or not
