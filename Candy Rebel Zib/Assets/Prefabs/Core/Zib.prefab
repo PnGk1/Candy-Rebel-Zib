@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6814732656173110441}
   - component: {fileID: 9012037984367555126}
-  - component: {fileID: 6059953561988015394}
+  - component: {fileID: 3714239247643658512}
   - component: {fileID: 3474557573453218}
   - component: {fileID: 6327713050367312291}
   m_Layer: 7
@@ -96,7 +96,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6059953561988015394
+--- !u!114 &3714239247643658512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4815118689677840303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c69992e95fe5d4dae954c103e011ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f813813afd9950418a99a9665eb6f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3474557573453218
@@ -244,6 +244,10 @@ PrefabInstance:
     - target: {fileID: 7159043762080298289, guid: 9724e402586279b4b88966c7d0204433, type: 3}
       propertyPath: m_Name
       value: HealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107997706529560513, guid: 9724e402586279b4b88966c7d0204433, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
