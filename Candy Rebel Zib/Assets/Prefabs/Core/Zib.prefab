@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7422c86594432344b518d81a59a689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onJumpDamage: 1
+  onJumpDamageForce: 10
   LinearDamp: 8
   GroundedSpeed: 1.1
   AirSpeed: 0.5
@@ -135,6 +137,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  SensetivePart:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &6327713050367312291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +262,11 @@ PrefabInstance:
 --- !u!224 &867376262400120124 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1371454876216832675, guid: 9724e402586279b4b88966c7d0204433, type: 3}
+  m_PrefabInstance: {fileID: 2234322994297481119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1337950653441378148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 977478941943439611, guid: 9724e402586279b4b88966c7d0204433, type: 3}
   m_PrefabInstance: {fileID: 2234322994297481119}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4836451454661066144
@@ -605,5 +615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeartPrefab: {fileID: 8200458595855403534, guid: 519135f003b66d54c8e3844b056764b8, type: 3}
+  HealthPanel: {fileID: 1337950653441378148}
   CurrentHearts: []
   MaxHearts: 5

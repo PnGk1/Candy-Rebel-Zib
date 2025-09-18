@@ -8,7 +8,7 @@ namespace Baseplate.HealthSystem
     {
         //UI Elements
         [SerializeField] GameObject HeartPrefab;
-        private GameObject HealthPanel;
+        [SerializeField] GameObject HealthPanel;
 
         //Cache
         [SerializeField] private List<HeartClass> CurrentHearts = new List<HeartClass>();
@@ -19,8 +19,6 @@ namespace Baseplate.HealthSystem
 
         private void Awake()
         {
-            HealthPanel = GameObject.Find("HealthPanel");
-
             //Setting Up
             EnsureHeartsExist();
             RefreshUI();

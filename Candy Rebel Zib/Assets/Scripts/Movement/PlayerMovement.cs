@@ -1,3 +1,4 @@
+using Baseplate.HealthSystem;
 using Baseplate.InputManager;
 using UnityEngine;
 
@@ -18,6 +19,11 @@ namespace Baseplate.movement
 
         //animation
         private Vector3 animationBlend;
+
+        //(Temporary)
+        [Header("Attack Settings")]
+        [SerializeField] float onJumpDamage = 1;
+        [SerializeField] float onJumpDamageForce = 50;
 
         //Move Settings
         [Header("Movement Settings")]
@@ -64,6 +70,8 @@ namespace Baseplate.movement
         [Header("Layermasks")]
         [SerializeField] LayerMask groundMask;
 
+        [SerializeField] LayerMask SensetivePart;
+
         //Cache
         private Camera cam;
         private Rigidbody rb;
@@ -90,7 +98,7 @@ namespace Baseplate.movement
         private void Update()
         {
             //Check if player is Grounded or not
-            IsGrounded = GroundCheck();
+            GroundCheck();
 
             updateAnims();
             CalculateMove();
@@ -161,12 +169,26 @@ namespace Baseplate.movement
             }
         }
 
-        private bool GroundCheck()
+        private void GroundCheck()
         {
             Vector3 footPos = PlayerCollider.bounds.center + Vector3.down * (PlayerCollider.bounds.extents.y - 0.02f);
             Vector3 endPos = footPos + Vector3.down * groundCheckRadius;
-            // Use QueryTriggerInteraction.Ignore to ensure triggers don't accidentally count as ground (works with your capsule collider) (fix #7)
-            return Physics.CheckCapsule(footPos, endPos, groundCheckRadius, groundMask, QueryTriggerInteraction.Ignore);
+
+            var groundCheck = Physics.CheckCapsule(footPos, endPos, groundCheckRadius, groundMask, QueryTriggerInteraction.Ignore);
+
+            IsGrounded = groundCheck;
+
+            Collider[] enemyHits = Physics.OverlapCapsule(footPos, endPos, groundCheckRadius, SensetivePart, QueryTriggerInteraction.Ignore);
+
+            foreach (var hit in enemyHits)
+            {
+                IDamageable enemy = hit.gameObject.GetComponent<IDamageable>();
+                if (enemy != null)
+                {
+                    Jump(ForceMode.VelocityChange, onJumpDamageForce);
+                    enemy.Damage(onJumpDamage);
+                }
+            }
         }
 
         private void JumpHandler()

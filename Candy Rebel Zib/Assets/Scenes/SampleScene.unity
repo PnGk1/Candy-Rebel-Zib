@@ -570,17 +570,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4360183270376762939, guid: ca52bcdc64ee1b14db6a152d4daa96f1, type: 3}
   m_PrefabInstance: {fileID: 485239571}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &238167543 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1076868357230487425, guid: ca52bcdc64ee1b14db6a152d4daa96f1, type: 3}
-  m_PrefabInstance: {fileID: 485239571}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba0f7486e0736d47a3cf533d42e6b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &290045716
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,10 +851,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7585559283664146364, guid: faeb688365116bb42afd92222224cc95, type: 3}
-      propertyPath: CurrentPatrolRoute
-      value: 
-      objectReference: {fileID: 238167543}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
